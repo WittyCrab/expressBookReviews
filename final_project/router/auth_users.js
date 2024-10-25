@@ -44,7 +44,6 @@ regd_users.post("/login", (req,res) => {
         res.send("Please provide both your username and password")
     }else{
       if (authenticatedUser(username,password, req)) {
-      //return res.send("succes");
       if (req.session.authorization) {
         let token = req.session.authorization['accessToken'];
         
@@ -58,10 +57,10 @@ regd_users.post("/login", (req,res) => {
         });
         
     } else {
-        return res.status(403).json({ message: "User not logged in1" });
+        return res.status(403).json({ message: "User not logged in" });
     }
     }else {
-        return res.status(403).json({ message: "User not logged inn" });
+        return res.status(403).json({ message: "User not logged in" });
     }
 }
 });
